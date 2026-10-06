@@ -14,7 +14,7 @@ export default defineConfig({
   workers: isCI ? 1 : undefined,
   reporter: [['list'], ['html'], ['allure-playwright']],
   use: {
-    baseURL: process.env.BASE_URL ?? 'https://www.practiceqaautomation.com/apps/lms',
+baseURL: process.env.BASE_URL?.trim() || 'https://www.practiceqaautomation.com/apps/lms',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
