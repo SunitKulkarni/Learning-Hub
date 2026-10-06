@@ -1,0 +1,21 @@
+{
+  "validUser": {
+    "email": "learner@learnhub.dev",
+    "password": "ENV_LEARNER_PASSWORD"
+  },
+  "newUser": {
+    "name": "New Learner",
+    "email": "ENV_NEW_USER_EMAIL",
+    "password": "ENV_NEW_USER_PASSWORD"
+  },
+  "invalidUsers": [
+    {
+      "email": "invalid@example.com",
+      "password": "wrongpass"
+    },
+    {
+      "email": "learner@learnhub.dev",
+      "password": "wrongpass"
+    }
+  ]
+}

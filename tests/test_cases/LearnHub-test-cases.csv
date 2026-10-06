@@ -1,0 +1,33 @@
+App,ID,Type,Priority,Title,Steps,Expected result
+"LearnHub","LEARNHUB-01","Positive","P1","Log in and complete a lesson","1. Log in as learner@learnhub.dev / Learn@123
+2. Enrol in a course
+3. Play the video
+4. Click Mark complete","Lesson is ticked and course progress increases"
+"LearnHub","LEARNHUB-02","Positive","P1","Pass the quiz","1. Complete every lesson
+2. Open the quiz and answer correctly
+3. Submit","Result shows a score of at least 60% and ""Passed"""
+"LearnHub","LEARNHUB-03","Positive","P2","Sign up a new learner","1. Fill name, a new email and a strong password twice
+2. Sign up","Account created and signed in"
+"LearnHub","LEARNHUB-04","Positive","P2","Catalog filters","1. Search, pick a category chip and a level","Course count matches the visible cards"
+"LearnHub","LEARNHUB-05","Positive","P2","Progress survives reload","1. Complete a lesson
+2. Reload the page","Progress and ticks are kept"
+"LearnHub","LEARNHUB-06","Negative","P1","Existing email","1. Sign up with learner@learnhub.dev","""An account with this email already exists"""
+"LearnHub","LEARNHUB-07","Negative","P2","Passwords do not match","1. Enter different confirm password","""Passwords don't match"""
+"LearnHub","LEARNHUB-08","Negative","P2","Weak password","1. Type abc","Strength meter shows Weak and sign-up is blocked"
+"LearnHub","LEARNHUB-09","Negative","P2","Invalid email","1. Enter learner@","""Enter a valid email"""
+"LearnHub","LEARNHUB-10","Edge","P1","Quiz locked until 100%","1. Open /quiz before finishing all lessons","Locked state is shown"
+"LearnHub","LEARNHUB-11","Edge","P2","Mark complete waits for video","1. Click Play","Mark complete is disabled for ~1.5 s, then enabled"
+"LearnHub","LEARNHUB-12","Edge","P2","Unanswered questions","1. Submit with blanks","Confirm dialog; ""Submit anyway"" grades blanks as wrong"
+"LearnHub","LEARNHUB-13","Edge","P2","Timer auto-submit","1. Mock the clock past 5:00","Quiz submits automatically and shows the result"
+"LearnHub","LEARNHUB-E2E-01","End-to-end","P1","Enrol, finish, pass and certify","1. Log in as learner@learnhub.dev / Learn@123
+2. Search Selenium and enrol
+3. For each lesson play the video then mark complete
+4. Start the quiz and answer all four correctly
+5. Submit","Progress reaches 100%, quiz scores 100%, and a certificate with an LH- id appears"
+"LearnHub","LEARNHUB-E2E-02","End-to-end","P1","Sign up and resume later","1. Sign up a new learner
+2. Enrol in a course and complete one lesson
+3. Reload / log in again
+4. Open the course","Progress and completed lessons are preserved"
+"LearnHub","LEARNHUB-E2E-03","End-to-end","P2","Unanswered then auto-submit","1. Complete all lessons and start the quiz
+2. Submit with blanks and choose Submit anyway
+3. Retake and let the timer expire (mock the clock)","Blank answers are graded wrong; the timed attempt auto-submits to the result"
