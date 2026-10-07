@@ -2,7 +2,6 @@ import { BasePage } from './base-page';
 
 export class CoursesPage extends BasePage {
   readonly welcomeMessage = this.page.getByText('Welcome, Demo');
-  readonly coursePrompt = this.page.getByText('Pick a course to start learning');
   readonly searchInput = this.page.getByTestId('course-search');
   readonly courseCount = this.page.getByTestId('course-count');
   readonly courseTitles = this.page.locator("[data-testid='course-title']");
@@ -10,11 +9,13 @@ export class CoursesPage extends BasePage {
   async open() {
     await this.goto('/courses');
     await this.waitForLoaded();
-    await this.coursePrompt.waitFor();
+    await this.waitForReady();
   }
 
   async waitForReady() {
-    await this.coursePrompt.waitFor();
+    await this.page.waitForURL(/\/apps\/lms\/courses/);
+    await this.searchInput.waitFor({ state: 'visible' });
+    await this.courseTitles.first().waitFor({ state: 'visible' });
   }
 
   async searchCourse(term: string) {

@@ -17,6 +17,7 @@ test.describe('LearnHub sign up', () => {
     });
 
     await test.step('Verify the learner is signed in', async () => {
+      await shop.page.waitForURL(/\/apps\/lms\/courses/);
       await expect(shop.page).toHaveURL(/\/apps\/lms\/courses/);
       await expect(shop.page.getByRole('button', { name: 'Log out' })).toBeVisible();
     });

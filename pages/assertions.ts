@@ -9,11 +9,12 @@ export class ShopAssertions {
   }
 
   async expectUserLoggedIn(name: string) {
-    await expect(this.page.getByText(`Welcome, ${name}`)).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: `Welcome, ${name}` })).toBeVisible();
   }
 
   async expectCoursePageVisible() {
-    await expect(this.page.getByText('Pick a course to start learning')).toBeVisible();
+    await expect(this.page.getByTestId('course-search')).toBeVisible();
+    await expect(this.page.locator("[data-testid='course-title']").first()).toBeVisible();
   }
 
   async expectLoginErrorVisible() {
